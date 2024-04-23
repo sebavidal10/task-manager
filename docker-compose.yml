@@ -1,0 +1,10 @@
+version: '3'
+services:
+  backend:
+    build: ./gestion-tareas-api
+    ports:
+      - '5000:5000'
+  frontend:
+    build: ./gestion-tareas-front
+    ports:
+      - '3000:3000'
