@@ -1,10 +1,36 @@
 version: '3'
 services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
   backend:
     build: ./gestion-tareas-api
+    volumes:
+      - ./gestion-tareas-api:/app
     ports:
-      - '5000:5000'
+      - '5001:5000'
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongodb:27017/taskManager
+    depends_on:
+      - mongodb
+    command: npm run dev
+
   frontend:
     build: ./gestion-tareas-front
+    volumes:
+      - ./gestion-tareas-front:/app
     ports:
       - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:5001
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

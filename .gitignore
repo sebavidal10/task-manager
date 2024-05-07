@@ -1,0 +1,11 @@
+# Ignorar los directorios node_modules en todos los directorios
+**/node_modules/
+
+# Ignorar los archivos generados durante el desarrollo
+**/*.log
+**/*.lock
+
+# Ignorar los directorios y archivos específicos de la API y el frontend
+gestion-tareas-api/node_modules/
+gestion-tareas-front/node_modules/
+gestion-tareas-front/build/
