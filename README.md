@@ -26,12 +26,12 @@ La aplicación se compone de tres partes principales:
 El sistema utiliza Docker y Docker Compose para la orquestación, facilitando el despliegue y la configuración de los diferentes servicios.
 
 ```plaintext
-+--------------+     +--------------+     +------------------+
-|              |     |              |     |                  |
-|   Frontend   +---->+    Backend   +---->+   Base de Datos  |
-|  (React.js)  |     | (Node/Express|     |     (MongoDB)    |
-|              |     |              |     |                  |
-+-------+------+     +------+-------+     +---------+--------+
++--------------+     +---------------+     +------------------+
+|              |     |               |     |                  |
+|   Frontend   +---->+    Backend    +---->+   Base de Datos  |
+|  (React.js)  |     | (Node/Express)|     |     (MongoDB)    |
+|              |     |               |     |                  |
++-------+------+     +------+--------+     +---------+--------+
         ^                   ^                       |
         |                   |                       |
         +-------------------+-----------------------+
