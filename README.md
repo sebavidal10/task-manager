@@ -8,7 +8,7 @@ Esta aplicación web de gestión de tareas permite a los usuarios manejar sus ta
   - [Tabla de Contenidos](#tabla-de-contenidos)
   - [Arquitectura](#arquitectura)
   - [Instalación](#instalación)
-    - [Prerrequisitos](#prerrequisitos)
+    - [Pre-requisitos](#pre-requisitos)
     - [Pasos](#pasos)
   - [Ejecución](#ejecución)
   - [Características](#características)
@@ -40,7 +40,7 @@ El sistema utiliza Docker y Docker Compose para la orquestación, facilitando el
 
 ## Instalación
 
-### Prerrequisitos
+### Pre-requisitos
 
 - Docker y Docker Compose
 - Node.js (para desarrollo local sin Docker)
