@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddTaskForm from './AddTaskForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -64,19 +65,36 @@ function TaskList() {
   return (
     <>
       <AddTaskForm onAddTask={addTask} />
-      <div>
+      <div className="space-y-4">
         {tasks.map((task) => (
           <div
             key={task._id}
-            style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+            className={`p-4 rounded shadow-md flex justify-between items-center ${
+              task.completed ? 'bg-green-100 line-through' : 'bg-white'
+            }`}
           >
-            {task.description} - {task.completed ? 'Completed' : 'Pending'}
-            <button
-              onClick={() => toggleTaskCompletion(task._id, task.completed)}
-            >
-              {task.completed ? 'Mark as Incomplete' : 'Mark as Complete'}
-            </button>
-            <button onClick={() => deleteTask(task._id)}>Delete</button>
+            <span className="text-lg">{task.description}</span>
+            <div className="flex space-x-2">
+              <button
+                onClick={() => toggleTaskCompletion(task._id, task.completed)}
+                className={`px-4 py-2 rounded text-white space-x-2 ${
+                  task.completed
+                    ? 'bg-yellow-500 hover:bg-yellow-600'
+                    : 'bg-green-500 hover:bg-green-600'
+                }`}
+              >
+                <FontAwesomeIcon icon={task.completed ? 'times' : 'check'} />
+                <span>
+                  {task.completed ? 'Mark as Incomplete' : 'Mark as Complete'}
+                </span>
+              </button>
+              <button
+                onClick={() => deleteTask(task._id)}
+                className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600 flex items-center space-x-2"
+              >
+                <FontAwesomeIcon icon="trash-alt" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
